@@ -33,15 +33,11 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 0;
-            padding-top: var(--header-height); /* Prevent content overlap with fixed header */
+            padding: 0; /* Removed padding-top since header is not fixed */
         }
 
         /* Header Styling */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: var(--header-height);
             background-color: var(--primary-color);
@@ -49,8 +45,8 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 5px var(--shadow-color);
-            z-index: 1000;
             padding: 0 20px;
+            position: relative; /* Changed from fixed to relative */
         }
 
         .header img {
@@ -233,10 +229,6 @@
 
             .time-display {
                 font-size: 12px;
-            }
-
-            body {
-                padding-top: var(--header-height);
             }
         }
     </style>
