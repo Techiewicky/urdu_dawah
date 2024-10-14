@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحديث الصوتي</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+        .hadith-container {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .hadith-container h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .hadith-container p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 16px;
+            color: #34495e;
+        }
+        .urdu-text {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .urdu-text p {
+            margin: 0;
+            font-size: 16px;
+            color: #16a085;
+        }
+
+        /* Audio Controls */
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .audio-controls button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin-right: 15px;
+            color: #4CAF50;
+            transition: color 0.3s;
+        }
+        .audio-controls button:hover {
+            color: #45a049;
+        }
+        .play-button, .replay-button {
+            font-size: 36px;
+            padding: 10px;
+        }
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin: 10px 15px;
+            position: relative;
+            cursor: pointer;
+            direction: ltr;
+            width: 100%;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            width: 0%;
+        }
+        .time-display {
+            font-size: 16px;
+            min-width: 80px;
+            color: #34495e;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hadith-container h2 {
+                font-size: 20px;
+            }
+            .hadith-container p, .urdu-text p {
+                font-size: 14px;
+            }
+            .play-button, .replay-button {
+                font-size: 30px;
+                padding: 8px;
+                margin-right: 10px;
+            }
+            .progress-bar {
+                margin: 10px 10px;
+            }
+            .time-display {
+                font-size: 14px;
+                min-width: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hadith-container {
+                padding: 15px;
+            }
+            .hadith-container h2 {
+                font-size: 18px;
+            }
+            .hadith-container p, .urdu-text p {
+                font-size: 13px;
+            }
+            .play-button, .replay-button {
+                font-size: 28px;
+                padding: 6px;
+                margin-right: 8px;
+            }
+            .progress-bar {
+                margin: 10px 8px;
+            }
+            .time-display {
+                font-size: 12px;
+                min-width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hadith 1 -->
+    <div class="hadith-container">
+        <h2>الحديث الأول</h2>
+        <p>
+            قال رسول الله ﷺ عن مكة: <br>
+            <em>"لا يُنَفَّرُ صيدُها"</em> <br><br>
+            أدنى مراتب الأذى بالبهائم لا تجوز في مكة، فكيف بأذية المسلمين في بيت الله الحرام، بمدافعتهم، أو الوقوف لأخذ صورة تذكارية في وسط الطواف مما يؤذي الطائفين ويضيق عليهم، أو بالصلاة خلف المقام مباشرة مما يؤدي إلى أذية الطائفين. <br><br>
+            أختي الكريمة، صلِّي في الأماكن المخصصة للصلاة، وابتعدي عن كل ما يؤذي أخواتك المسلمات.
+        </p>
+        <div class="audio-controls">
+            <button class="play-button" id="playPause1" onclick="togglePlayPause('audio1', 'playPause1')">▶️</button>
+            <div class="progress-bar" onclick="seekAudio(event, 'audio1')">
+                <div class="progress" id="progress1"></div>
+            </div>
+            <button class="replay-button" onclick="replayAudio('audio1', 'playPause1')">🔄</button>
+            <span class="time-display" id="time1">0:00 / 0:00</span>
+            <audio id="audio1" src="Audio/Hadith_one.wav"></audio>
+        </div>
+        <div class="urdu-text">
+            <p>
+                ہمارے نبی محمد صلی اللہ علیہ وسلم کا مکہ کے بارے میں ارشاد ہے: "یہاں کے جانوروں کو نہ (شکار کے لیے) بھگایا جائے۔"<br><br>
+                جانوروں کو تکلیف دینے کا سب سے کم تر درجہ (انہیں بھگانا) بھی مکہ میں جائز نہیں ہے، پھر مسلمانوں کو حرم، اللہ کے گھر میں تکلیف دینا کیسے جائز ہو سکتا ہے؟ جیسے:<br>
+                - انہیں دھکے دینا<br>
+                - یا طواف کرنے والوں کے بیچ میں کھڑے ہو کر تصویریں کھینچنا جس سے طواف کرنے والوں کو تکلیف ہو اور ان کے لیے تنگی ہو<br>
+                - یا مقامِ ابراہیم کے ٹھیک پیچھے نماز پڑھنے کے لیے کھڑے ہو جانا جو طواف کرنے والوں کی اذیت کا سبب بنتا ہے۔<br><br>
+                پیاری بہن! نماز اس کے لیے مختص جگہ پر ادا کیجئے اور ہر اس چیز سے دور رہیے جو آپ کی دوسری مسلمان بہنوں کی پریشانی کا سبب بنے۔
+            </p>
+        </div>
+    </div>
+
+    <!-- Hadith 2 -->
+    <div class="hadith-container">
+        <h2>الحديث الثاني</h2>
+        <p>
+            قال تعالى: <br>
+            <em>"يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قِيلَ لَكُمْ تَفَسَّحُوا فِي المَجَالِسِ فَافْسَحُوا يَفْسَحِ اللَّهُ لَكُمْ"</em> <br>
+            سورة المجادلة: 11 <br><br>
+            <strong>يفسح الله لكم:</strong> أي يوسع عليكم في الدنيا والآخرة. <br>
+            ومن فسح لأخيه فسح الله له، ومن وسع لأخيه وسع الله عليه. <br><br>
+            تفسحي أختي الحبيبة لأخواتك المسلمات، ليوسع الله في مالك وصحتك وأبنائك ووقتك، ويوسع لك في قبرك وجنتك.
+        </p>
+        <div class="audio-controls">
+            <button class="play-button" id="playPause2" onclick="togglePlayPause('audio2', 'playPause2')">▶️</button>
+            <div class="progress-bar" onclick="seekAudio(event, 'audio2')">
+                <div class="progress" id="progress2"></div>
+            </div>
+            <button class="replay-button" onclick="replayAudio('audio2', 'playPause2')">🔄</button>
+            <span class="time-display" id="time2">0:00 / 0:00</span>
+            <audio id="audio2" src="Audio/Almujadilah.wav"></audio>
+        </div>
+        <div class="urdu-text">
+            <p>
+                اللہ تعالیٰ کا فرمان ہے: <br>
+                <em>"تم جگہ کشادہ کردو، اللہ تمہیں کشادگی دے گا۔"</em> (سورة المجادلة: 11) <br><br>
+                <strong>يفسح الله لكم:</strong> (اللہ تمہیں کشادگی دے گا) یعنی اللہ تعالیٰ تمہیں دنیا اور آخرت میں وسعت و کشادگی عطا فرمائے گا۔<br>
+                اور جو اپنے بھائی (یا بہن) کے لیے جگہ بنائے گا اللہ اس کے لیے جگہ بنائے گا اور جو اپنے بھائی کے لیے جگہ کو کشادہ کرے گا اللہ اس کے لیے وسعت پیدا کرے گا۔<br><br>
+                پیاری بہن! اپنی مسلمان بہنوں کے لیے جگہ بنائیے اور وسعت پیدا کیجئے تاکہ اللہ تعالیٰ آپ کو آپ کے مال، صحت، اولاد اور وقت میں وسعت دے، اور آپ کے لیے قبر اور جنت میں وسعت پیدا کرے۔
+            </p>
+        </div>
+    </div>
+
+    <!-- Hadith 3 -->
+    <div class="hadith-container">
+        <h2>الحديث الثالث</h2>
+        <p>
+            قال تعالى: <br>
+            <em>"وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى"</em> <br>
+            سورة المائدة: 2 <br><br>
+            وهذا يدل على اشتراك المتعاونين على الخير في الأجر. <br><br>
+            تعاوني أختي الحبيبة مع من حولك من الموظفات، ورجال الأمن باستجابتك لتعليماتهم، لتشاركيهم أجر خدمة بيت الله ووفده.
+        </p>
+        <div class="audio-controls">
+            <button class="play-button" id="playPause3" onclick="togglePlayPause('audio3', 'playPause3')">▶️</button>
+            <div class="progress-bar" onclick="seekAudio(event, 'audio3')">
+                <div class="progress" id="progress3"></div>
+            </div>
+            <button class="replay-button" onclick="replayAudio('audio3', 'playPause3')">🔄</button>
+            <span class="time-display" id="time3">0:00 / 0:00</span>
+            <audio id="audio3" src="Audio/Maidah.wav"></audio>
+        </div>
+        <div class="urdu-text">
+            <p>
+                اللہ تعالیٰ کا فرمان ہے: <br>
+                <em>"نیکی اور پرہیزگاری میں ایک دوسرے کی مدد کرتے رہو"</em> (سورة المائدة: 2) <br><br>
+                اور یہ اس بات کی دلیل ہے کہ نیکی کے کاموں میں تعاون کرنے والوں کا اجر میں بھی حصہ ہوگا۔<br><br>
+                پیاری بہن! اپنے اردگرد حرم میں ڈیوٹی دینے والی عورتوں اور سیکورٹی کے افراد کے ساتھ ان کی تعلیمات پر عمل کرکے تعاون کیجئے تاکہ آپ اللہ کے گھر اور یہاں آنے والوں کی خدمت کرنے کے اجر میں ان کے ساتھ آپ کا بھی حصہ ہو۔
+            </p>
+        </div>
+    </div>
+
+    <!-- Hadith 4 -->
+    <div class="hadith-container">
+        <h2>الحديث الرابع</h2>
+        <p>
+            قال تعالى: <br>
+            <em>"إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِنَ الْمُحْسِنِينَ"</em> <br>
+            سورة الأعراف: 56 <br><br>
+            أقرب الناس إلى رحمة الله تعالى أرحمهم بخلقه. <br><br>
+            ارحمي أختي الحبيبة من حولك من ضيوف الرحمن حتى يرحمك الله تعالى۔
+        </p>
+        <div class="audio-controls">
+            <button class="play-button" id="playPause4" onclick="togglePlayPause('audio4', 'playPause4')">▶️</button>
+            <div class="progress-bar" onclick="seekAudio(event, 'audio4')">
+                <div class="progress" id="progress4"></div>
+            </div>
+            <button class="replay-button" onclick="replayAudio('audio4', 'playPause4')">🔄</button>
+            <span class="time-display" id="time4">0:00 / 0:00</span>
+            <audio id="audio4" src="Audio/AlAraf.wav"></audio>
+        </div>
+        <div class="urdu-text">
+            <p>
+                اللہ تعالیٰ کا فرمان ہے: <br>
+                <em>"بیشک اللہ تعالیٰ کی رحمت نیک کام کرنے والوں کے نزدیک ہے۔"</em> (سورة الأعراف: 56) <br><br>
+                اللہ تعالیٰ کی رحمت سے سب سے زیادہ قریب وہ شخص ہے جو اس کی مخلوق پر سب سے زیادہ رحم کرنے والا ہے۔<br><br>
+                پیاری بہن! اپنے اردگرد اللہ کے مہمانوں پر رحم کیجئے تاکہ اللہ تعالیٰ آپ پر رحم فرمائے۔
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Audio Controls -->
+    <script>
+        var currentAudio = null;
+
+        function togglePlayPause(audioId, buttonId) {
+            var audio = document.getElementById(audioId);
+            var button = document.getElementById(buttonId);
+
+            // Stop other audios
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                var currentButtonId = 'playPause' + currentAudio.id.replace('audio', '');
+                document.getElementById(currentButtonId).textContent = '▶️';
+            }
+
+            // Toggle play/pause
+            if (audio.paused) {
+                audio.play();
+                button.textContent = '⏸️';
+                currentAudio = audio;
+            } else {
+                audio.pause();
+                button.textContent = '▶️';
+            }
+
+            // Update progress bar and time
+            audio.ontimeupdate = function() {
+                updateProgress(audioId);
+            };
+
+            // Reset when audio ends
+            audio.onended = function() {
+                button.textContent = '▶️';
+                updateProgress(audioId, true);
+            };
+        }
+
+        function replayAudio(audioId, buttonId) {
+            var audio = document.getElementById(audioId);
+            var button = document.getElementById(buttonId);
+
+            // Stop other audios
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                var currentButtonId = 'playPause' + currentAudio.id.replace('audio', '');
+                document.getElementById(currentButtonId).textContent = '▶️';
+            }
+
+            audio.currentTime = 0;
+            audio.play();
+            button.textContent = '⏸️';
+            currentAudio = audio;
+        }
+
+        function updateProgress(audioId, reset = false) {
+            var audio = document.getElementById(audioId);
+            var progressBar = document.getElementById('progress' + audioId.replace('audio', ''));
+            var timeDisplay = document.getElementById('time' + audioId.replace('audio', ''));
+
+            if (reset) {
+                progressBar.style.width = '0%';
+                timeDisplay.textContent = formatTime(0) + ' / ' + formatTime(audio.duration);
+                return;
+            }
+
+            if (!isNaN(audio.duration)) {
+                var percentage = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = percentage + '%';
+                timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+            } else {
+                timeDisplay.textContent = '0:00 / 0:00';
+            }
+        }
+
+        function seekAudio(event, audioId) {
+            var audio = document.getElementById(audioId);
+            var progressBarContainer = event.currentTarget;
+
+            // Get the bounding rectangle of the progress bar
+            var rect = progressBarContainer.getBoundingClientRect();
+
+            // Calculate the click position relative to the progress bar (LTR direction)
+            var offsetX = event.clientX - rect.left;
+            var totalWidth = rect.width;
+
+            // Calculate the percentage based on LTR direction
+            var percentage = offsetX / totalWidth;
+
+            // Clamp percentage between 0 and 1
+            percentage = Math.max(0, Math.min(percentage, 1));
+
+            // Set the current time of the audio
+            audio.currentTime = percentage * audio.duration;
+
+            // Update the progress bar and time display
+            updateProgress(audioId);
+        }
+
+        function formatTime(seconds) {
+            var minutes = Math.floor(seconds / 60);
+            seconds = Math.floor(seconds % 60);
+            return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+        }
+    </script>
+
+</body>
+</html>
