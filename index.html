@@ -231,6 +231,48 @@
                 font-size: 12px;
             }
         }
+
+        /* Reference Section Styling */
+        .reference-section {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 25px 20px; /* Increased padding for better spacing */
+            margin-top: 50px; /* Slightly increased margin for separation */
+            box-shadow: 0 -2px 10px var(--shadow-color); /* Enhanced shadow for depth */
+            border-top: 2px solid var(--accent-color); /* Added top border for separation */
+        }
+
+        .reference-text {
+            color: var(--text-color);
+            font-family: 'Amiri', serif;
+            font-size: 20px; /* Increased font size for better readability */
+            font-weight: 700; /* Made the text bolder */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Added space between icon and text */
+        }
+
+        .reference-text i {
+            color: var(--accent-color); /* Colored the icon to match accent color */
+            font-size: 24px; /* Increased icon size */
+        }
+
+        /* Responsive Styling for Reference Section */
+        @media (max-width: 640px) {
+            .reference-text {
+                font-size: 18px; /* Slightly smaller font for smaller screens */
+            }
+
+            .reference-text i {
+                font-size: 20px; /* Adjusted icon size for smaller screens */
+            }
+
+            .reference-section {
+                padding: 20px 15px; /* Adjusted padding for smaller screens */
+                margin-top: 40px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -256,7 +298,7 @@
                     <p>
                         ہمارے نبی محمد صلی اللہ علیہ وسلم کا مکہ کے بارے میں ارشاد ہے: "یہاں کے جانوروں کو نہ (شکار کے لیے) بھگایا جائے۔" اس حدیث سے معلوم ہوتا ہے کہ جانوروں کو تکلیف دینے کا سب سے کم تر درجہ، یعنی انہیں بھگانا بھی مکہ میں جائز نہیں ہے۔ تو پھر مسلمانوں کو حرم میں تکلیف دینا کیسے جائز ہو سکتا ہے؟ مثلاً: انہیں دھکے دینا، طواف کرنے والوں کے بیچ میں کھڑے ہو کر تصویریں کھینچنا، جس سے طواف کرنے والوں کو تنگی اور تکلیف ہو، یا مقام ابراہیم کے بالکل پیچھے کھڑے ہو کر نماز پڑھنا، جو طواف کرنے والوں کے لیے اذیت کا باعث بنتا ہے۔ پیاری بہن! نماز اس کے لیے مختص جگہ پر ادا کریں اور ہر اس چیز سے پرہیز کریں جو آپ کی مسلمان بہنوں کے لیے پریشانی کا سبب بنے۔
                     </p>
-                 </div>
+                </div>
                 <div class="audio-controls">
                     <button class="audio-button" id="playPause1"><i class="fas fa-play"></i></button>
                     <div class="progress-container" onclick="seekAudio(event, 'audio1')">
@@ -507,5 +549,13 @@
             togglePlayPause('audio4', 'playPause4');
         });
     </script>
+
+    <!-- Reference Section -->
+    <div class="reference-section">
+        <p class="reference-text">
+            <i class="fas fa-book-open" aria-hidden="true"></i> 
+            ترجمة معاني القرآن باللغة الأوردية لشيخ محمد جوناگڑھی - دار السلام
+        </p>
+    </div>
 </body>
 </html>
